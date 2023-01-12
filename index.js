@@ -1,6 +1,15 @@
 //project needs stuff to run
-const fs = require(fs);
-const inquirer = require(inquirer);
+const fs = require("fs");
+const inquirer = require("inquirer");
+
+//set variables
+let writeTitle = "";
+let writeDesc = "";
+let writeInstall = "";
+let writeUsage = "";
+let writeLicense = "";
+let writeContribute = "";
+let writeTests = "";
 
 //main README write-up
 const writeMain = `# ${writeTitle}
@@ -9,7 +18,15 @@ const writeMain = `# ${writeTitle}
 
 ${writeDesc}
 
-${writeTOC}
+## Table of Contents
+
+- [Install](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contribution](#contribution)
+- [Tests](#tests)
+
+## Installation
 
 ${writeInstall}
 
@@ -17,17 +34,15 @@ ${writeInstall}
 
 ${writeUsage}
 
-${writeCredits}
-
 ## License
 
 ${writeLicense}
 
-${writeBadges}
-
-${writeFeatures}
+## Contribution
 
 ${writeContribute}
+
+## Tests
 
 ${writeTests};`
 
@@ -45,54 +60,40 @@ inquirer
       name: 'desc',
     },
     {
-      type: 'confirm',
-      message: 'Do you want to include a Table of Contents in your README?',
-      name: 'tocConfirm',
+        type: 'input',
+        message: 'Write any necessary installation instructions',
+        name: 'install',
     },
     {
-        type: 'confirm',
-        message: 'Do you want to include install instructions in your README?',
-        name: 'installConfirm',
+        type: 'input',
+        message: 'Write instructions and examples on how to use your program',
+        name: 'usage',
+    },
+    {
+        type: 'list',
+        message: 'Which license would you like your program to have?',
+        name: 'license',
+        choices: ['None', 'MIT', 'GNU General Public 3.0'],
+    },
+    {
+        type: 'input',
+        message: 'How can other developers contribute to your project?',
+        name: 'contribute',
+    },
+    {
+        type: 'input',
+        message: 'Provide any tests for your project',
+        name: 'tests',
     },
   ])
   .then((response) => {
-    const writeTitle = response.title;
-    const writeDesc = response.desc;
-    //only write a TOC if the user wants to include one
-    if (response.tocConfirm=true) {
-        //only include install instructions in TOC if the user includes them
-        if (response.installConfirm=true) {
-            var tocInstall = "- [Installation](#installation)";
-        }
-        //only include badges in TOC if the user includes them
-        if (response.badgesConfirm=true) {
-            var tocBadges = "- [Installation](#installation)";
-        }
-        //only include features in TOC if the user includes them
-        if (response.featuresConfirm=true) {
-            var tocFeatures = "- [Installation](#installation)";
-        }
-        //only include contribution instructions in TOC if the user includes them
-        if (response.contributeConfirm=true) {
-            var tocContribute = "- [Installation](#installation)";
-        }
-        //only include tests in TOC if the user includes them
-        if (response.testsConfirm=true) {
-            var tocTests = "- [Installation](#installation)";
-        }
-        const writeTOC = `## Table of Contents
-        
-        ${tocInstall}
-        - [Usage](#usage)
-        - [Credits](#credits)
-        - [License](#license)
-        ${tocBadges}
-        ${tocFeatures}
-        ${tocContribute}
-        ${tocTests}`
-    }
-    //only write install instructions if the user wants to include them
-    if (response.insallConfirm=true) {
-        const writeInstall = response.install;
-    }
+    writeTitle = response.title;
+    writeDesc = response.desc;
+    writeInstall = response.install;
+    writeUsage = response.usage;
+    writeLicense = response.license;
+    writeContribute = response.contribute;
+    writeTests = response.tests;
+    fs.writeFile("generatedREADME.md", writeMain, (err) =>
+    err ? console.log(err) : console.log('README generation complete.'));
   });
