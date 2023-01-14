@@ -2,9 +2,7 @@
 
 ## Description
 
-README files are a vital part of any professional program. They're what makes a program accessible through description and instruction. Without a proper README, many people may not even give a program a second glance. 
-
-...but they're also kind of a chore to make. Luckily, this program will help you make a quality README *and* save you time doing it. 
+README files are a vital part of any professional program. They're what makes a program accessible through description and instruction. Without a proper README, many people may not even give a program a second glance, but writing one also takes away from valuable time that could be spent programming. Luckily, this program will help you make a quality README *and* save you time doing it. 
 
 ## Table of Contents
 
