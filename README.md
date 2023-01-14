@@ -31,7 +31,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 4. When all prompts are answered, wait for the README to generate
 5. Enjoy your quality README file!
 
-![screenshot of program in-use](assets/images/screenshot.png)
+![screenshot of program in-use](assets/images/screenshot.PNG)
 
 ## Credits
 
