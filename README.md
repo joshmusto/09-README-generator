@@ -20,16 +20,18 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Usage
 
-<!--> ![alt text](assets/images/screenshot.png) <!-->
-
 1. Navigate to the project directory in your console
-2. Type the following code into your console: 
+2. Type the following code into your console to install the necessary dependencies: 
+
+        npm install
+
+3. Type the following code into your console to run the program: 
 
         node index.js
     
-3. Answer the prompts as they appear in the console
-4. When all prompts are answered, wait for the README to generate
-5. Enjoy your quality README file!
+4. Answer the prompts as they appear in the console
+5. When all prompts are answered, wait for the README to generate
+6. Enjoy your quality README file!
 
 ![screenshot of program in-use](assets/images/screenshot.PNG)
 
